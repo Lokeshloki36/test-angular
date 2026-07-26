@@ -1,0 +1,5 @@
+allowBuilds:
+  esbuild: true
+  nice-napi: true
+minimumReleaseAgeExclude:
+  - '@leadlens-sdk/angular@1.0.1'

@@ -1,0 +1,55 @@
+<div class="animate-fade-in" style="display: flex; flex-direction: column; gap: 2rem;">
+  <div>
+    <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Curated <span class="gradient-text">Properties</span></h1>
+    <p style="color: var(--text-secondary);">Browse our portfolio of elite estates and ultra-luxurious penthouses.</p>
+  </div>
+
+  <!-- Category Filter Bar -->
+  <div style="display: flex; gap: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+    <button (click)="setCategory('all')" 
+            [class]="selectedCategory === 'all' ? 'btn btn-primary' : 'btn btn-secondary'" 
+            style="padding: 0.5rem 1.2rem; font-size: 0.85rem; border-radius: 8px;">
+      All Properties
+    </button>
+    <button (click)="setCategory('villa')" 
+            [class]="selectedCategory === 'villa' ? 'btn btn-primary' : 'btn btn-secondary'" 
+            style="padding: 0.5rem 1.2rem; font-size: 0.85rem; border-radius: 8px;">
+      Villas
+    </button>
+    <button (click)="setCategory('penthouse')" 
+            [class]="selectedCategory === 'penthouse' ? 'btn btn-primary' : 'btn btn-secondary'" 
+            style="padding: 0.5rem 1.2rem; font-size: 0.85rem; border-radius: 8px;">
+      Penthouses
+    </button>
+    <button (click)="setCategory('residence')" 
+            [class]="selectedCategory === 'residence' ? 'btn btn-primary' : 'btn btn-secondary'" 
+            style="padding: 0.5rem 1.2rem; font-size: 0.85rem; border-radius: 8px;">
+      Residences
+    </button>
+  </div>
+
+  <!-- Cards Grid -->
+  <div class="grid">
+    <div *ngFor="let prop of filteredProperties" class="glass" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="height: 220px; border-radius: 12px; background: rgba(15, 23, 42, 0.4); display: flex; align-items: center; justify-content: center; font-size: 3.5rem; position: relative;">
+        <span style="position: absolute; top: 1rem; right: 1rem; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 700; font-size: 0.85rem; color: #3b82f6;">
+          {{ prop.price }}
+        </span>
+        {{ prop.icon }}
+      </div>
+      <div>
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.25rem;">{{ prop.title }}</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem;">📍 {{ prop.location }}</p>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
+        <span>🛏️ {{ prop.beds }} Beds</span>
+        <span>🛁 {{ prop.baths }} Baths</span>
+        <span>📐 {{ prop.sqft }} sqft</span>
+      </div>
+      <!-- Direct routing link triggers PAGE_VIEW and route tracking -->
+      <a [routerLink]="['/property', prop.id]" class="btn btn-secondary" style="width: 100%; text-align: center; font-size: 0.9rem; padding: 0.6rem;">
+        View Details
+      </a>
+    </div>
+  </div>
+</div>

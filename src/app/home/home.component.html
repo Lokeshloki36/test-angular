@@ -1,0 +1,75 @@
+<div class="animate-fade-in" style="display: flex; flex-direction: column; gap: 4rem;">
+  <!-- Hero Section -->
+  <section style="display: flex; align-items: center; justify-content: space-between; gap: 3rem; min-height: 70vh;">
+    <div style="flex: 1; display: flex; flex-direction: column; gap: 1.5rem; max-width: 550px;">
+      <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); padding: 0.4rem 1rem; border-radius: 100px; width: fit-content; font-size: 0.85rem; font-weight: 600; color: #60a5fa;">
+        <span>✦</span> Luxury Living Elevated
+      </div>
+      <h1 style="font-size: 3.5rem; line-height: 1.1; font-weight: 800;">Find Your Next <br><span class="gradient-text">Architectural masterpiece</span></h1>
+      <p style="color: var(--text-secondary); font-size: 1.1rem;">
+        Discover and calculate options for premium penthouses, beachfront villas, and sophisticated architectural creations tailored to elite lifestyles.
+      </p>
+      <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+        <a routerLink="/properties" class="btn btn-primary">Browse Villas</a>
+        <!-- Testing BROCHURE_DOWNLOAD: a link with brochure-matching keywords or PDF extension -->
+        <a href="/assets/LuxEstate_General_Brochure.pdf" download id="main-brochure-download" class="btn btn-secondary">
+          Download Brochure
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Card Graphic -->
+    <div style="flex: 1; display: flex; justify-content: flex-end;">
+      <div class="glass" style="width: 100%; max-width: 480px; overflow: hidden; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+        <div style="height: 280px; border-radius: 12px; background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%); display: flex; align-items: center; justify-content: center; position: relative;">
+          <div style="position: absolute; top: 1rem; right: 1rem; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); padding: 0.4rem 0.8rem; border-radius: 6px; font-weight: 700; font-size: 0.9rem; color: #3b82f6;">$4,890,000</div>
+          <span style="font-size: 3.5rem;">🏰</span>
+        </div>
+        <div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 0.25rem;">Aetheria Sovereign Villa</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; display: flex; align-items: center; gap: 0.25rem;">📍 Beverly Hills, Los Angeles</p>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">
+          <span>🛏️ 6 Beds</span>
+          <span>🛁 8 Baths</span>
+          <span>📐 12,400 sqft</span>
+        </div>
+        <a [routerLink]="['/property', 1]" class="btn btn-secondary" style="width: 100%; text-align: center;">View Full Details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlight Showcase Grid -->
+  <section style="display: flex; flex-direction: column; gap: 1rem;">
+    <h2>Monitored <span class="gradient-text">Diagnostics Showcase</span></h2>
+    <p style="color: var(--text-secondary); max-width: 600px;">
+      LuxEstate is equipped with full analytics diagnostics tracking that automatically records session activity, navigation events, form captures, and calculator interactions.
+    </p>
+
+    <div class="grid">
+      <div class="glass" style="padding: 2rem; display: flex; flex-direction: column; gap: 0.75rem;">
+        <span style="font-size: 2rem;">📈</span>
+        <h4 style="font-size: 1.15rem;">Automated Page Views</h4>
+        <p style="color: var(--text-secondary); font-size: 0.9rem;">
+          Navigating across tabs registers instant PAGE_VIEW route updates via the Angular Router hook.
+        </p>
+      </div>
+
+      <div class="glass" style="padding: 2rem; display: flex; flex-direction: column; gap: 0.75rem;">
+        <span style="font-size: 2rem;">🧮</span>
+        <h4 style="font-size: 1.15rem;">Mortgage Calculator</h4>
+        <p style="color: var(--text-secondary); font-size: 0.9rem;">
+          Evaluating properties with our interactive EMI calculator records instant interest profiles.
+        </p>
+      </div>
+
+      <div class="glass" style="padding: 2rem; display: flex; flex-direction: column; gap: 0.75rem;">
+        <span style="font-size: 2rem;">📝</span>
+        <h4 style="font-size: 1.15rem;">Smart Form Capture</h4>
+        <p style="color: var(--text-secondary); font-size: 0.9rem;">
+          Submitting contact inquiries matches metadata fields to identify potential buyers.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>

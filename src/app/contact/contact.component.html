@@ -1,0 +1,47 @@
+<div class="animate-fade-in" style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
+  <div style="text-align: center;">
+    <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Request <span class="gradient-text">Information</span></h1>
+    <p style="color: var(--text-secondary);">Submit an inquiry and let our team match you with your perfect home.</p>
+  </div>
+
+  <div class="glass" style="padding: 2.5rem;">
+    <!-- Success Message -->
+    <div *ngIf="submitted" style="text-align: center; display: flex; flex-direction: column; gap: 1.5rem; padding: 1rem 0;">
+      <span style="font-size: 3.5rem;">✅</span>
+      <div>
+        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Inquiry Registered</h3>
+        <p style="color: var(--text-secondary);">Thank you! Our estate concierge will reach out to you within the hour. LeadLens diagnostics events have been dispatched.</p>
+      </div>
+      <button (click)="resetForm()" class="btn btn-secondary" style="align-self: center; margin-top: 1rem;">
+        Submit Another Inquiry
+      </button>
+    </div>
+
+    <!-- Form Layout -->
+    <form *ngIf="!submitted" (submit)="onSubmit()">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="e.g. John Doe" class="form-control" [(ngModel)]="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="emailAddress">Email Address</label>
+        <input type="email" id="emailAddress" name="emailAddress" placeholder="e.g. john@example.com" class="form-control" [(ngModel)]="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phoneNumber">Phone Contact</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="e.g. +1 (555) 019-2834" class="form-control" [(ngModel)]="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="messageText">Inquiry Message</label>
+        <textarea id="messageText" name="messageText" rows="4" placeholder="Tell us about the property you are interested in..." class="form-control" [(ngModel)]="message"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+        Send Gated Inquiry
+      </button>
+    </form>
+  </div>
+</div>

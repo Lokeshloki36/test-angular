@@ -1,0 +1,25 @@
+<nav class="glass animate-fade-in" style="position: sticky; top: 0; z-index: 100; margin: 1rem 1.5rem; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;">
+  <div style="display: flex; align-items: center; gap: 0.75rem;">
+    <div style="background: var(--accent-gradient); width: 2.2rem; height: 2.2rem; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.25rem;">L</div>
+    <span style="font-weight: 700; font-size: 1.2rem; letter-spacing: -0.03em;">Lux<span class="gradient-text">Estate</span></span>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 2rem; font-weight: 500; font-size: 0.95rem; color: var(--text-secondary);">
+    <a routerLink="/home" routerLinkActive="gradient-text" [routerLinkActiveOptions]="{exact: true}" style="transition: color 0.2s;">Home</a>
+    <a routerLink="/properties" routerLinkActive="gradient-text" style="transition: color 0.2s;">Properties</a>
+    <a routerLink="/about" routerLinkActive="gradient-text" style="transition: color 0.2s;">About Depth</a>
+    <a routerLink="/contact" routerLinkActive="gradient-text" style="transition: color 0.2s;">Inquiry Form</a>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <a routerLink="/contact" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Contact Us</a>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<footer style="margin-top: 5rem; padding: 3rem 0; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-secondary); font-size: 0.9rem;">
+  <p>© 2026 LuxEstate Residences. All rights reserved. Diagnostics Integration Active.</p>
+</footer>
