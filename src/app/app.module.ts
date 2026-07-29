@@ -44,7 +44,7 @@ export function initLeadLens(leadLensService: LeadLensService, config: any) {
       provide: LEADLENS_CONFIG,
       useValue: {
         apiKey: 'f98536f3-2203-49f8-ba0a-7de6e228edf6',
-        apiUrl: 'https://your-deployed-backend.com', // <-- Production URL
+        apiUrl: 'https://leadlens-backend-fw1o.onrender.com', // <-- Production URL
         options: {
           debug: true,
           trackForms: true,
