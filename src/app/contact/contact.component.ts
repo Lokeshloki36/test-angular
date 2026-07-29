@@ -14,20 +14,38 @@ export class ContactComponent {
   
   submitted: boolean = false;
 
-  constructor(private leadLens: LeadLensService) {}
+  constructor(private leadLens: LeadLensService) {
+    console.log('[ContactComponent] LeadLens service injected:', this.leadLens);
+    console.log('[ContactComponent] LeadLens isReady:', this.leadLens.isReady());
+  }
 
   onSubmit() {
+    console.log('[ContactComponent] Form submitted with data:', {
+      name: this.name,
+      email: this.email,
+      phone: this.phone
+    });
+
     if (!this.email && !this.phone) {
       alert('Please fill out email or phone details.');
       return;
     }
 
-    // Capture identity via LeadLens SDK Service
-    this.leadLens.identify({
-      name: this.name,
-      email: this.email,
-      phone: this.phone
-    });
+    console.log('[ContactComponent] Calling leadLens.identify()...');
+    
+    try {
+      // Capture identity via LeadLens SDK Service
+      // Note: Will attempt to send even if session init failed
+      this.leadLens.identify({
+        name: this.name,
+        email: this.email,
+        phone: this.phone
+      });
+
+      console.log('[ContactComponent] identify() called successfully');
+    } catch (error) {
+      console.error('[ContactComponent] Error calling identify():', error);
+    }
 
     // Note: identify() automatically records user identity and triggers FORM_SUBMIT event
 

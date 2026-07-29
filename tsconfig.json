@@ -21,11 +21,7 @@
     "lib": [
       "ES2022",
       "dom"
-    ],
-    "paths": {
-      "@leadlens-sdk/core": ["../leadlens-sdk/packages/core/src/index.ts"],
-      "@leadlens-sdk/angular": ["../leadlens-sdk/packages/angular/src/index.ts"]
-    }
+    ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

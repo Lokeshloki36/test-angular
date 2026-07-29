@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,7 +10,20 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 
 import { FormsModule } from '@angular/forms';
-import { LeadLensModule } from '@leadlens-sdk/angular';
+import { LEADLENS_CONFIG, LeadLensService } from '@leadlens-sdk/angular';
+
+export function initLeadLens(leadLensService: LeadLensService, config: any) {
+  return () => {
+    console.log('[App] Initializing LeadLens SDK with config:', config);
+    try {
+      leadLensService.init(config);
+      console.log('[App] LeadLens SDK initialized successfully');
+      console.log('[App] isReady():', leadLensService.isReady());
+    } catch (error) {
+      console.error('[App] Failed to initialize LeadLens:', error);
+    }
+  };
+}
 
 @NgModule({
   declarations: [
@@ -24,19 +37,30 @@ import { LeadLensModule } from '@leadlens-sdk/angular';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    LeadLensModule.forRoot({
-      apiKey: 'f98536f3-2203-49f8-ba0a-7de6e228edf6',
-      apiUrl: 'http://localhost:8080',
-      options: {
-        debug: true,
-        trackForms: true,
-        trackClicks: true,
-        trackScrollDepth: true
-      }
-    })
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LEADLENS_CONFIG,
+      useValue: {
+        apiKey: 'f98536f3-2203-49f8-ba0a-7de6e228edf6',
+        apiUrl: 'https://your-deployed-backend.com', // <-- Production URL
+        options: {
+          debug: true,
+          trackForms: true,
+          trackClicks: true,
+          trackScrollDepth: true
+        }
+      }
+    },
+    LeadLensService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initLeadLens,
+      deps: [LeadLensService, LEADLENS_CONFIG],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
