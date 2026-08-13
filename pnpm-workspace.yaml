@@ -1,9 +1,9 @@
 packages:
   - '.'
 
-onlyBuiltDependencies:
-  - esbuild
-  - nice-napi
+allowBuilds:
+  esbuild: true
+  nice-napi: true
 
 pnpm:
   minimumReleaseAgeExclude:
